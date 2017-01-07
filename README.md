@@ -39,7 +39,7 @@ rake db:migrate
 
 ## Extras
 * Sample template for Spree Page using related products: [template_product_page.html.erb](app/views/plugins/camaleon_spree/examples/template_product_page.html.erb)
-  Copy inside your [camaleon current theme folder]/theme/views/template_product_page.html.erb and assign it in page edit form.
+  Copy inside your app/apps/themes/[camaleon current theme folder]/views/template_product_page.html.erb and assign it in page edit form.
 * Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/plugins/camaleon_spree/examples/_product_custom_fields.html.erb)
   Copy inside your app/views/defaces/product_custom_fields.html.erb and create a deface for Spree, like:    
   ```
