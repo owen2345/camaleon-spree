@@ -1,0 +1,3 @@
+<div class="group-input-fields-content">
+    <%= select_tag "#{field_name}[#{field.slug}][values][]", option_groups_from_collection_for_select(Spree::Taxonomy.all, :taxons, :name, :id, :name), include_blank: 'Select Category', class: "form-control input-value #{"required" if field.options[:required].to_s.to_bool}", id: '' %>
+</div>

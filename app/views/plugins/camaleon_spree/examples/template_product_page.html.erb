@@ -1,0 +1,45 @@
+<div class="col-md-12 page-view">
+    <article class="post-content">
+        <h1><%= raw @post.the_title.upcase %><%= @post.the_edit_link %></h1>
+        <div class="item-content">
+            <%= raw @post.the_content %>
+        </div>
+
+        <% if (fields = @post.the_fields('spree-categories')).present? %>
+            <h3>Related Categories</h3>
+            <ul>
+                <% fields.each do |category_id| taxon = Spree::Taxon.where(id: category_id).first; next unless taxon.present?; %>
+                    <li><%= link_to(taxon.name, spree.nested_taxons_path(taxon.permalink)) %></li>
+                <% end %>
+            </ul>
+        <% end %>
+
+        <!-- Related Products -->
+        <% if (fields = @post.the_fields('related-products')).present? %>
+            <h3>Related Products</h3>
+            <div class="row">
+                <% fields.each do |product_id|
+                  product = Spree::Product.where(id: product_id).first; next unless product.present?;
+                  url = spree.product_url(product)
+                %>
+                    <div id="product_<%= product.id %>" class="col-md-3 col-sm-6 col-xs-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-center product-body">
+                                <%= link_to url, itemprop: "url" do %>
+                                    <%= small_image(product, itemprop: "image") %><br/>
+                                    <%= content_tag(:span, truncate(product.name, length: 50), class: 'info', itemprop: "name", title: product.name) %>
+                                <% end %>
+                                <br/>
+                            </div>
+                            <div class="panel-footer text-center">
+                              <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span class="price selling lead" itemprop="price"><%= display_price(product) %></span>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </article>
+</div>

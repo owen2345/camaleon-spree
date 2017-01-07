@@ -1,0 +1,39 @@
+@mixin link_round($radio: 30) {
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  color: #656d78;
+  display: block;
+  float: left;
+  height: #{$radio}px;
+  line-height: #{$radio - 3}px;
+  margin-left: 3px;
+  text-align: center;
+  transition: all 200ms ease 0s;
+  width: #{$radio}px;
+}
+
+.c-field-group {
+  .panel-controls{
+    display: none;
+  }
+  .item-custom-field {
+    margin-bottom: 15px;
+    > label {
+      display: block;
+      .shortcode_field input{
+        min-width: 250px;
+      }
+    }
+    .actions{
+      overflow: hidden;
+      width: 67px;
+      float: left;
+      .fa {
+        @include link_round;
+      }
+      & + .group-input-fields-content {
+        margin-left: 75px;
+      }
+    }
+  }
+}

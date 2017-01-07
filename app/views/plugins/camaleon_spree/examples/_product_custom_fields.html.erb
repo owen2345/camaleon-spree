@@ -1,0 +1,15 @@
+<% if(pages = @product.get_fields('sample-pages')).present? %>
+    <h3>Related Pages</h3>
+    <div class="row">
+        <% pages.each do |page_id| p=CamaleonCms::Post.where(id: page_id).first.try(:decorate); next unless p.present? %>
+            <div class="col-md-3">
+                <a href="<%= p.the_url %>">
+                    <%= image_tag(p.the_thumb_url, style: 'disply:block', width: '100%') %>
+                </a>
+                <a href="<%= p.the_url %>">
+                    <%= p.the_title %>
+                </a>
+            </div>
+        <% end %>
+    </div>
+<% end %>

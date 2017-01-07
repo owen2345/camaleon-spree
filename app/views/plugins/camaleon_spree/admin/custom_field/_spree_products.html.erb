@@ -1,0 +1,3 @@
+<div class="group-input-fields-content">
+    <%= select_tag "#{field_name}[#{field.slug}][values][]", options_from_collection_for_select(Spree::Product.active.order(name: :ASC), :id, :name), include_blank: 'Select Product', class: "form-control input-value #{"required" if field.options[:required].to_s.to_bool}", id: '' %>
+</div>

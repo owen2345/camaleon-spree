@@ -1,0 +1,5 @@
+<script>var root_admin_url = '<%= cama_admin_url %>'; var ADMIN_TRANSLATIONS = <%= raw current_site.get_languages.to_json %>;</script>
+<%= javascript_include_tag 'plugins/camaleon_spree/main' %>
+<%= stylesheet_link_tag 'plugins/camaleon_spree/main' %>
+<div class="clearfix"></div>
+<%= render partial: "camaleon_cms/admin/settings/custom_fields/render", locals: {record: @product, field_groups: @product.get_field_groups} %>

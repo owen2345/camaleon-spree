@@ -1,0 +1,24 @@
+{
+  "title": "Camaleon Spree",
+  "descr": "Permit to include Spree Commerce admin panel into Camaleon CMS",
+  "key": "camaleon_spree", // must be the name of the folder of your plugin, sample: app/views/plugins/<my_plugin> ==> 'my_plugin'
+  "helpers": [
+    "Plugins::CamaleonSpree::MainHelper"
+  ],
+  "hooks": {
+    "on_active": [
+      "camaleon_spree_on_active"
+    ],
+    "on_inactive": [
+      "camaleon_spree_on_inactive"
+    ],
+    "available_user_roles_list": ["camaleon_spree_user_roles_hook"],
+    "extra_custom_fields": ["camaleon_spree_custom_fields"],
+    "custom_field_custom_models": ["camaleon_spree_custom_field_models"],
+    "on_render_front_menu_item": ["camaleon_spree_on_render_front_menu_item"],
+    "nav_menu_custom": ["camaleon_spree_cama_nav_menus"],
+    "parse_custom_menu_item": ["camaleon_spree_on_parse_custom_menu_item"],
+    "front_default_layout": ["camaleon_spree_front_default_layout"],
+    "plugin_options": ["camaleon_spree_on_plugin_options"]
+  }
+}

@@ -1,0 +1,23 @@
+<style>
+    #custom_cama_menu .current-link,
+    #custom_cama_menu .current-menu-ancestor > a{ color: #fff; }
+    #custom_cama_menu .dropdown-menu .current-link{ color: #bbb; }
+</style> <!--TMP Harcoding-->
+<nav id="custom_cama_menu" role="navigation">
+    <div class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 0">
+        <div class="container">
+            <div style="position: absolute; top: 0;"><%= raw current_site.draw_languages("language-list list-inline", true) %></div>
+            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <%= raw draw_menu({container_id: "menu-menu-1", container_class: "nav navbar-nav navbar-right"}) %>
+            </div>
+        </div>
+    </div>
+</nav>
