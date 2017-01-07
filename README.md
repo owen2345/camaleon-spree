@@ -50,7 +50,7 @@ rake db:migrate
         partial: 'defaces/product_custom_fields'
     )
   ```
-* Add Camaleon CMS Menus in Spree Layout (Download sample template here and copy to app/views/defaces/_layout_menus)
+* Add Camaleon CMS Menus in Spree Layout (Download sample template [here](app/views/plugins/camaleon_spree/examples/_layout_menus.html.erb) and copy to app/views/defaces/_layout_menus)
   ```
   Deface::Override.new(
         virtual_path: 'spree/layouts/spree_application',
