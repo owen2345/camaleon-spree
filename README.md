@@ -61,10 +61,6 @@ rake db:migrate
   ```
 * Demonstration:    
 http://spree.tuzitio.com/   
-    - Card credentials:   
-    Authorize.net: 370000000000002 | 2020 | 123   
-    Paypal: owen@gmail.com | /*django*/   
-    Stripe: 4242424242424242 | 2020 | 123
     - Admin User: admin | admin123
         
 * More information here:   
