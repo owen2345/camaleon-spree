@@ -39,7 +39,7 @@ rake db:migrate
 
 ## Extras
 * Sample template for Spree Page using related products: [template_product_page.html.erb](app/views/plugins/camaleon_spree/examples/template_product_page.html.erb)
-  Copy inside your camaleon theme/views and assign it in page edit form.
+  Copy inside your [camaleon current theme folder]/theme/views/template_product_page.html.erb and assign it in page edit form.
 * Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/plugins/camaleon_spree/examples/_product_custom_fields.html.erb)
   Copy inside your app/views/defaces/product_custom_fields.html.erb and create a deface for Spree, like:    
   ```
@@ -50,7 +50,7 @@ rake db:migrate
         partial: 'defaces/product_custom_fields'
     )
   ```
-* Add Camaleon CMS Menus in Spree Layout (Download sample template [here](app/views/plugins/camaleon_spree/examples/_layout_menus.html.erb) and copy to app/views/defaces/_layout_menus)
+* Add Camaleon CMS Menus in Spree Layout (Download sample template [here](app/views/plugins/camaleon_spree/examples/_layout_menus.html.erb) and copy to app/views/defaces/_layout_menus.html.erb)
   ```
   Deface::Override.new(
         virtual_path: 'spree/layouts/spree_application',
@@ -61,7 +61,7 @@ rake db:migrate
   ```
 * Demonstration:    
 http://spree.tuzitio.com/   
-    - Admin User: admin | admin123
+    - Admin User: owenperedo@gmail.com | 12345678
         
 * More information here:   
 http://camaleon.tuzitio.com/store/plugins/camaleon-spree
