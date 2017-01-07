@@ -38,9 +38,9 @@ rake db:migrate
 * Manage Store Menus by Camaleon CMS
 
 ## Extras
-* Sample template for Spree Page using related products: [template_product_page.html.erb](app/views/examples/template_product_page.html.erb)
+* Sample template for Spree Page using related products: [template_product_page.html.erb](app/views/plugins/camaleon_spree/examples/template_product_page.html.erb)
   Copy inside your camaleon theme/views and assign it in page edit form.
-* Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/examples/_product_custom_fields.html.erb)
+* Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/plugins/camaleon_spree/examples/_product_custom_fields.html.erb)
   Copy inside your app/views/defaces/product_custom_fields.html.erb and create a deface for Spree, like:    
   ```
   Deface::Override.new(
