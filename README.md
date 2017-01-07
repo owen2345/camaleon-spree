@@ -1,6 +1,7 @@
 # Camaleon CMS - Spree 
-Camaleon CMS - Sree is a plugin of Camaleon CMS to add Camaleon CMS into Spree CMS
-
+Camaleon CMS - Spree is a plugin of Camaleon CMS to add Camaleon CMS into Spree CMS
+![](screenshot.png)
+This plugin permit you to add custom fields for Spree Products by simple Drag and Drop, add custom fields for Camaleon Contents using Spree Products and Categories, also permits to manage your menus from Camaleon CMS.
 ## Installation
 * Install Spree   
     If there is an error creating admin user: please do this:
@@ -37,9 +38,9 @@ rake db:migrate
 * Manage Store Menus by Camaleon CMS
 
 ## Extras
-* Sample template for Spree Page using related products: ![template_product_page.html.erb]    
+* Sample template for Spree Page using related products: [template_product_page.html.erb](app/views/examples/template_product_page.html.erb)
   Copy inside your camaleon theme/views and assign it in page edit form.
-* Sample frontend show product custom fields ![_product_custom_fields.html.erb]
+* Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/examples/_product_custom_fields.html.erb)
   Copy inside your app/views/defaces/product_custom_fields.html.erb and create a deface for Spree, like:    
   ```
   Deface::Override.new(
