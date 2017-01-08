@@ -43,21 +43,28 @@ rake db:migrate
 * Sample frontend show product custom fields [_product_custom_fields.html.erb](app/views/plugins/camaleon_spree/examples/_product_custom_fields.html.erb)
   Copy inside your app/views/defaces/product_custom_fields.html.erb and create a deface for Spree, like:    
   ```
-  Deface::Override.new(
-        virtual_path: 'spree/products/show',
-        name: 'cama_product_view_custom_fields',
-        insert_bottom: '[data-hook="product_taxons"]',
-        partial: 'defaces/product_custom_fields'
-    )
+  # config/initializers/spree_defaces.rb
+  Rails.application.config.to_prepare do
+      Deface::Override.new(
+            virtual_path: 'spree/products/show',
+            name: 'cama_product_view_custom_fields',
+            insert_bottom: '[data-hook="product_taxons"]',
+            partial: 'defaces/product_custom_fields'
+        )
+  end
   ```
-* Add Camaleon CMS Menus in Spree Layout (Download sample template [here](app/views/plugins/camaleon_spree/examples/_layout_menus.html.erb) and copy to app/views/defaces/_layout_menus.html.erb)
+* Add Camaleon CMS Menus in Spree Layout (Download sample template [here](app/views/plugins/camaleon_spree/examples/_layout_menus.html.erb))
+  Copy to app/views/defaces/_layout_menus.html.erb and create a deface for Spree, like:
   ```
-  Deface::Override.new(
-        virtual_path: 'spree/layouts/spree_application',
-        name: 'cama_menus_in_spree',
-        insert_top: '[data-hook="body"]',
-        partial: 'defaces/layout_menus'
-    )
+  # config/initializers/spree_defaces.rb
+  Rails.application.config.to_prepare do
+      Deface::Override.new(
+            virtual_path: 'spree/layouts/spree_application',
+            name: 'cama_menus_in_spree',
+            insert_top: '[data-hook="body"]',
+            partial: 'defaces/layout_menus'
+        )
+  end  
   ```
 * Demonstration:    
 http://spree.tuzitio.com/   
