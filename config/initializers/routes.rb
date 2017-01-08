@@ -1,9 +1,21 @@
 class Camaspreehelperroutes
   def self.update_helper_routes
-    _routes = ['cama_profile', 'cama_search', 'cama_post_of_posttype', 'cama_save_comment', 'cama_save_form', 'cama_post_type', 'cama_hierarchy_post', 'cama_post_tag', 'cama_post', 'cama_root', 'cama_admin', 'cama_admin_dashboard']
+
+    # not arguments
+    _routes = ['cama_profile', 'cama_search', 'cama_post_of_posttype', 'cama_save_comment', 'cama_save_form', 'cama_post_type', 'cama_hierarchy_post', 'cama_post_tag', 'cama_post', 'cama_root', 'cama_admin', 'cama_admin_dashboard',
+      'cama_category', 'cama_post_of_category', 'cama_post_of_post_type', 'cama_post_type']
     _routes += Cama::PostType.pluck(:id).map{|id| "cama_post_type_#{id}"}
 
-    _cama_lang_routes = ['cama_category', 'cama_post_of_category', 'cama_post_of_post_type', 'cama_post_type']
+    # three arguments
+    ['edit_cama_admin_post_type_post_tag_url', 'edit_cama_admin_post_type_post_url'].each do |u|
+      Spree::BaseHelper.module_eval <<-eoruby, __FILE__, __LINE__ + 1
+      def #{u}(pt_id, object, args)
+        Rails.application.routes.url_helpers.#{u}(pt_id, object, args)
+      end
+      eoruby
+    end
+
+    _cama_lang_routes = ['cama_post_type']
     Cama::Site.main_site.get_languages.each{|_l| _cama_lang_routes.each{|_r| _routes << "#{_r}_#{_l}" } }
     _routes.each do |x|
       Spree::BaseHelper.module_eval <<-eoruby, __FILE__, __LINE__ + 1
@@ -17,14 +29,7 @@ class Camaspreehelperroutes
       eoruby
     end
 
-    ['edit_cama_admin_post_type_post_tag_url', 'edit_cama_admin_post_type_post_url'].each do |u|
-      Spree::BaseHelper.module_eval <<-eoruby, __FILE__, __LINE__ + 1
-      def #{u}(pt_id, object, args)
-        Rails.application.routes.url_helpers.#{u}(pt_id, object, args)
-      end
-      eoruby
-    end
-
+    # two arguments
     ['edit_cama_admin_post_type_category_url', 'edit_cama_admin_settings_post_type_url'].each do |u|
       Spree::BaseHelper.module_eval <<-eoruby, __FILE__, __LINE__ + 1
       def #{u}(id, args)
