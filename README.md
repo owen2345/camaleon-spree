@@ -8,7 +8,7 @@ This plugin permit you to add custom fields for Spree Products by simple Drag an
     ```
     rake spree_auth:admin:create
     ```
-* Install Camaleon CMS '>= 2.4.3'
+* Install Camaleon CMS '>= 2.4.4.3'
 * Edit Camaleon CMS Settings config/system.json
  ```
  "user_model": "Spree::User",
@@ -19,11 +19,12 @@ This plugin permit you to add custom fields for Spree Products by simple Drag an
 gem 'camaleon_spree'
 ```
 * Copy private file private_helper.rb to app/helpers/plugins/camaleon_spree/private_helper.rb
-* Gem installation
-```
-bundle install
-rake db:migrate
-```
+* Install plugin, generate migrations and run migrations
+  ```
+  bundle install
+  rake camaleon_cms:generate_migrations
+  rake db:migrate
+  ```
 * Restart Server
 * Complete Camaleon CMS Installation by visiting: http://localhost:3000/store_admin
 * Active your plugin in store_admin -> plugins

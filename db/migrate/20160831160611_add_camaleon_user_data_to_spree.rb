@@ -1,4 +1,4 @@
-class AddCamaleonUserDataToSpree < ActiveRecord::Migration
+class AddCamaleonUserDataToSpree < CamaManager.migration_class
   def change
     add_column(CamaleonCms::User.table_name, :email, :string) unless column_exists?(CamaleonCms::User.table_name, :email)
     add_column(CamaleonCms::User.table_name, :role, :string, default: 'client', index: true) unless column_exists?(CamaleonCms::User.table_name, :role)
